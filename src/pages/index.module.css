@@ -1,18 +1,31 @@
-/**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
- */
-
 .heroBanner {
-  padding: 4rem 0;
+  padding: 5rem 0 4rem;
   text-align: center;
   position: relative;
   overflow: hidden;
 }
 
+.heroEyebrow {
+  margin-bottom: 0.75rem;
+  font-size: 0.98rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  opacity: 0.9;
+}
+
+.heroTitle {
+  letter-spacing: 0;
+}
+
+.heroSubtitle {
+  max-width: 760px;
+  margin: 1rem auto 0;
+  line-height: 1.8;
+}
+
 @media screen and (max-width: 996px) {
   .heroBanner {
-    padding: 2rem;
+    padding: 3rem 1rem;
   }
 }
 
@@ -20,4 +33,126 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 1.75rem;
+}
+
+.heroButton {
+  min-width: 150px;
+}
+
+.heroStats {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.95rem;
+}
+
+.heroStats span {
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 8px;
+  padding: 0.35rem 0.65rem;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.section {
+  padding: 3rem 0 1.5rem;
+}
+
+.trustSection {
+  background: var(--ifm-background-surface-color);
+}
+
+.sectionHeader {
+  max-width: 760px;
+  margin-bottom: 1.25rem;
+}
+
+.sectionHeader h2 {
+  margin-bottom: 0.5rem;
+  letter-spacing: 0;
+}
+
+.sectionHeader p {
+  margin: 0;
+  color: var(--ifm-color-emphasis-700);
+  line-height: 1.8;
+}
+
+.pathGrid,
+.trustGrid {
+  display: grid;
+  gap: 1rem;
+}
+
+.pathGrid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.trustGrid {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.pathCard,
+.trustCard {
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  padding: 1rem;
+  background: var(--ifm-background-color);
+  color: inherit;
+  height: 100%;
+}
+
+.pathCard h3,
+.trustCard h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0;
+}
+
+.pathCard p,
+.trustCard p {
+  color: var(--ifm-color-emphasis-700);
+  line-height: 1.7;
+  margin-bottom: 0;
+}
+
+.trustCard {
+  display: block;
+  text-decoration: none;
+}
+
+.trustCard:hover {
+  text-decoration: none;
+  border-color: var(--ifm-color-primary);
+}
+
+.inlineLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.inlineLinks a {
+  border: 1px solid var(--ifm-color-primary);
+  border-radius: 8px;
+  padding: 0.35rem 0.65rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 996px) {
+  .pathGrid,
+  .trustGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .section {
+    padding: 2rem 0 1rem;
+  }
 }

@@ -23,7 +23,7 @@ const config = {
         v4: {
             removeLegacyPostBuildHeadAttribute: true, // required
         },
-        experimental_faster: {
+        faster: {
             swcJsLoader: true,
             swcJsMinimizer: true,
             swcHtmlMinimizer: true,
@@ -87,6 +87,9 @@ const config = {
     ],
     markdown: {
         mermaid: true,
+        hooks: {
+            onBrokenMarkdownLinks: 'warn',
+        },
     },
     headTags: [
         {
@@ -133,7 +136,6 @@ const config = {
     // projectName: 'docusaurus', // Usually your repo name.
 
     onBrokenLinks: 'warn',
-    onBrokenMarkdownLinks: 'warn',
 
     // Even if you don't use internationalization, you can use this field to set
     // useful metadata like html lang. For example, if your site is Chinese, you
@@ -610,6 +612,32 @@ const config = {
                             }
                         ]
                     },
+                    {
+                        type: "dropdown",
+                        label: "站点",
+                        items: [
+                            {
+                                label: '关于代码酷',
+                                to: "/about"
+                            },
+                            {
+                                label: '编辑说明',
+                                to: "/editorial-policy"
+                            },
+                            {
+                                label: '联系我们',
+                                to: "/contact"
+                            },
+                            {
+                                label: '隐私政策',
+                                to: "/privacy"
+                            },
+                            {
+                                label: '使用条款',
+                                to: "/terms"
+                            },
+                        ]
+                    },
 
                 ],
 
@@ -634,21 +662,41 @@ const config = {
                                 to: '/search',
                             },
                             {
+                                label: '关于代码酷',
+                                to: '/about',
+                            },
+                            {
+                                label: '编辑说明',
+                                to: '/editorial-policy',
+                            },
+                            {
                                 label: '问题反馈',
-                                to: 'mailto:feedback@echo.cool',
+                                to: '/contact',
                             },
                         ],
                     },
                     {
-                        title: 'Links',
+                        title: '政策与联系',
                         items: [
                             {
-                                label: '关于我',
-                                to: 'https://www.yuyangwang.org/',
+                                label: '隐私政策',
+                                to: '/privacy',
+                            },
+                            {
+                                label: '使用条款',
+                                to: '/terms',
+                            },
+                            {
+                                label: '联系邮箱',
+                                href: 'mailto:feedback@echo.cool',
+                            },
+                            {
+                                label: '关于维护者',
+                                href: 'https://www.yuyangwang.org/',
                             },
                             {
                                 label: '英文站点',
-                                to: 'https://www.compilenrun.com/',
+                                href: 'https://www.compilenrun.com/',
                             },
                             {
                                 label: '京ICP备17055752号-2',
