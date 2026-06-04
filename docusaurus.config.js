@@ -23,7 +23,7 @@ const config = {
         v4: {
             removeLegacyPostBuildHeadAttribute: true, // required
         },
-        experimental_faster: {
+        faster: {
             swcJsLoader: true,
             swcJsMinimizer: true,
             swcHtmlMinimizer: true,
@@ -87,6 +87,9 @@ const config = {
     ],
     markdown: {
         mermaid: true,
+        hooks: {
+            onBrokenMarkdownLinks: 'warn',
+        },
     },
     headTags: [
         {
@@ -133,7 +136,6 @@ const config = {
     // projectName: 'docusaurus', // Usually your repo name.
 
     onBrokenLinks: 'warn',
-    onBrokenMarkdownLinks: 'warn',
 
     // Even if you don't use internationalization, you can use this field to set
     // useful metadata like html lang. For example, if your site is Chinese, you

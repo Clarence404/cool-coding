@@ -6,7 +6,6 @@ import {
   SkipToContentFallbackId,
   ThemeClassNames,
 } from '@docusaurus/theme-common';
-import {useKeyboardNavigation} from '@docusaurus/theme-common/internal';
 import SkipToContent from '@theme/SkipToContent';
 import AnnouncementBar from '@theme/AnnouncementBar';
 import Navbar from '@theme/Navbar';
@@ -24,7 +23,6 @@ export default function Layout(props) {
     title,
     description,
   } = props;
-  useKeyboardNavigation();
   return (
       <LayoutProvider>
           <PageMetaDataWithoutSiteName title={title} description={description}/>
@@ -38,6 +36,7 @@ export default function Layout(props) {
           <div
               id={SkipToContentFallbackId}
               className={clsx(
+                  ThemeClassNames.layout.main.container,
                   ThemeClassNames.wrapper.main,
                   styles.mainWrapper,
                   wrapperClassName,
