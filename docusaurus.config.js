@@ -89,10 +89,10 @@ const config = {
         }
         window.addEventListener('pointerdown', loadDocusaurusScripts, {once: true, passive: true});
         window.addEventListener('keydown', loadDocusaurusScripts, {once: true});
-        if (document.readyState === 'complete') {
-          scheduleLoad();
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', scheduleLoad, {once: true});
         } else {
-          window.addEventListener('load', scheduleLoad, {once: true});
+          scheduleLoad();
         }
       })();
     </script>
