@@ -38,10 +38,10 @@
 
 .featureImage {
   width: 100px;
+  height: 100px;
   align-self: center;
-  /*height: 100px;*/
-  /*width: auto;*/
-  /*margin-bottom: 0.5rem;*/
+  display: block;
+  object-fit: contain;
 }
 
 .cardLink {
@@ -58,4 +58,3 @@
   font-weight: bold;
   font-size: 0.9rem;
 }
-

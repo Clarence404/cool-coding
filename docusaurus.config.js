@@ -43,6 +43,62 @@ const config = {
     // Set the /<baseUrl>/ pathname under which your site is served
     // For GitHub pages deployment, it is often '/<projectName>/'
     baseUrl: '/',
+    baseUrlIssueBanner: false,
+    ssrTemplate: `<!DOCTYPE html>
+<html <%~ it.htmlAttributes %>>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="generator" content="Docusaurus v<%= it.version %>">
+    <% it.metaAttributes.forEach((metaAttribute) => { %>
+      <%~ metaAttribute %>
+    <% }); %>
+    <%~ it.headTags %>
+    <% it.stylesheets.forEach((stylesheet) => { %>
+      <link rel="stylesheet" href="<%= it.baseUrl %><%= stylesheet %>" />
+    <% }); %>
+  </head>
+  <body <%~ it.bodyAttributes %>>
+    <%~ it.preBodyTags %>
+    <div id="__docusaurus"><%~ it.appHtml %></div>
+    <script>
+      (function() {
+        var scripts = [
+          <% it.scripts.forEach((script, index) => { %>
+            "<%= it.baseUrl %><%= script %>"<%= index === it.scripts.length - 1 ? "" : "," %>
+          <% }); %>
+        ];
+        var loading = false;
+        function loadDocusaurusScripts() {
+          if (loading) {
+            return;
+          }
+          loading = true;
+          scripts.forEach(function(src) {
+            var script = document.createElement('script');
+            script.src = src;
+            script.async = false;
+            document.body.appendChild(script);
+          });
+        }
+        function scheduleLoad() {
+          if ('requestIdleCallback' in window) {
+            window.requestIdleCallback(loadDocusaurusScripts, {timeout: 2500});
+          } else {
+            window.setTimeout(loadDocusaurusScripts, 1200);
+          }
+        }
+        window.addEventListener('pointerdown', loadDocusaurusScripts, {once: true, passive: true});
+        window.addEventListener('keydown', loadDocusaurusScripts, {once: true});
+        if (document.readyState === 'complete') {
+          scheduleLoad();
+        } else {
+          window.addEventListener('load', scheduleLoad, {once: true});
+        }
+      })();
+    </script>
+    <%~ it.postBodyTags %>
+  </body>
+</html>`,
 
     plugins: [
         [
