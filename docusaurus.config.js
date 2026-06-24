@@ -175,7 +175,7 @@ const config = {
         // 'https://docusaurus.io/script.js',
         // Object format.
         {
-            src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4639688777749090',
+            src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8558870819217345',
             async: true,
             crossorigin: 'anonymous',
         },
